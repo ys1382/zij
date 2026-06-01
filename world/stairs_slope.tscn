@@ -1,0 +1,64 @@
+[gd_scene load_steps=8 format=3 uid="uid://bstairs00001"]
+
+[sub_resource type="StandardMaterial3D" id="Mat_ramp"]
+albedo_color = Color(0.4, 0.4, 0.55, 1)
+
+[sub_resource type="StandardMaterial3D" id="Mat_step"]
+albedo_color = Color(0.55, 0.5, 0.4, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ramp"]
+size = Vector3(14, 5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ramp"]
+size = Vector3(14, 5, 6)
+
+[sub_resource type="BoxMesh" id="BoxMesh_step"]
+size = Vector3(1, 0.4, 4)
+
+[node name="StairsSlope" type="Node3D"]
+
+[node name="Ramp" type="StaticBody3D" parent="." groups=["ramp"]]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp"]
+transform = Transform3D(0.94898, -0.31537, 0, 0.31537, 0.94898, 0, 0, 0, 1, 4.57, -0.16, 4)
+shape = SubResource("BoxShape3D_ramp")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp"]
+transform = Transform3D(0.94898, -0.31537, 0, 0.31537, 0.94898, 0, 0, 0, 1, 4.57, -0.16, 4)
+mesh = SubResource("BoxMesh_ramp")
+material_override = SubResource("Mat_ramp")
+
+[node name="Stairs" type="StaticBody3D" parent="." groups=["stairs"]]
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Stairs"]
+transform = Transform3D(0.94898, -0.31537, 0, 0.31537, 0.94898, 0, 0, 0, 1, 4.57, -0.16, -4)
+shape = SubResource("BoxShape3D_ramp")
+
+[node name="Step0" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.3, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step1" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2.8, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step2" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.3, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step3" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 3.8, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step4" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4.3, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")

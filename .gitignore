@@ -1,0 +1,14 @@
+# Godot 4 — engine import cache (regenerated on import)
+.godot/
+/android/
+/ios/
+
+# macOS
+.DS_Store
+
+# Test harness artifacts (screenshots + results, regenerated each run)
+/test_output/
+
+# Unreal Engine packaged demo — runnable Windows build (.pak/.ucas/.exe/DLLs),
+# NOT importable into Godot. Excluded to keep the repo lean.
+/assets/MiddleEasternTownGigapackDemo/

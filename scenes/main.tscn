@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmain0000001"]
+
+[ext_resource type="PackedScene" uid="uid://blevel000001" path="res://world/level.tscn" id="1_level"]
+[ext_resource type="PackedScene" uid="uid://bplayer00001" path="res://actors/player.tscn" id="2_player"]
+[ext_resource type="PackedScene" uid="uid://bdebug000001" path="res://ui/debug_overlay.tscn" id="3_dbg"]
+[ext_resource type="PackedScene" uid="uid://bdoor0000001" path="res://actors/door.tscn" id="4_door"]
+[ext_resource type="PackedScene" uid="uid://bstairs00001" path="res://world/stairs_slope.tscn" id="5_stairs"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_camwall"]
+size = Vector3(6, 4, 0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_camwall"]
+size = Vector3(6, 4, 0.5)
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.707107, -0.5, 0.5, 0, 0.707107, 0.707107, -0.707107, -0.5, 0.5, 0, 10, 0)
+shadow_enabled = true
+
+[node name="Level" parent="." instance=ExtResource("1_level")]
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+
+[node name="CameraTestWall" type="StaticBody3D" parent="." groups=["camera_test_wall"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 2.5)
+collision_layer = 1
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CameraTestWall"]
+shape = SubResource("BoxShape3D_camwall")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CameraTestWall"]
+mesh = SubResource("BoxMesh_camwall")
+
+[node name="Door" parent="." instance=ExtResource("4_door")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -3)
+
+[node name="StairsSlope" parent="." instance=ExtResource("5_stairs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="DebugOverlay" parent="." instance=ExtResource("3_dbg")]
