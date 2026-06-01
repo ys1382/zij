@@ -213,9 +213,10 @@ func climb_test(player, lane_z: float, shot: String) -> Dictionary:
 		peak_y = max(peak_y, y)
 		if player.is_on_floor():
 			grounded_count += 1
-		# expected surface y under the player: ~2.3 at x=4 rising 0.333/unit
+		# expected surface y under the player: ~2.3 at x=4 rising 0.333/unit.
+		# Player is feet-origin (humanoid), so y should sit ~at the surface.
 		var surf: float = 2.3 + (player.global_position.x - 4.0) * 0.333
-		if y < surf + 0.9 - 0.35:
+		if y < surf - 0.4:
 			no_sink = false   # sank noticeably below the slope surface
 		if y < peak_y - 0.6:
 			monotonic = false
