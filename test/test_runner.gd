@@ -202,6 +202,11 @@ func climb_test(player, lane_z: float, shot: String) -> Dictionary:
 	var sampled := 0
 	var no_sink := true
 	var monotonic := true
+	# Side camera to see the feet-vs-surface profile mid-climb.
+	var sidecam := Camera3D.new()
+	add_child(sidecam)
+	var mid_done := false
+	var mid_shot := shot.replace(".png", "_mid.png")
 	player.test_input = Vector2(1, 0)   # +X, uphill
 	for i in range(200):
 		# stop before the player walks off the top edge (~x=10.5)
@@ -213,6 +218,15 @@ func climb_test(player, lane_z: float, shot: String) -> Dictionary:
 		peak_y = max(peak_y, y)
 		if player.is_on_floor():
 			grounded_count += 1
+		# Halfway up (~x=7): capture a side view showing feet on the surface.
+		if not mid_done and player.global_position.x > 7.0:
+			mid_done = true
+			sidecam.current = true
+			var p: Vector3 = player.global_position
+			sidecam.global_position = p + Vector3(0.5, 1.0, 6.0)
+			sidecam.look_at(p + Vector3(0, 0.6, 0))
+			await capture(mid_shot)
+			player.get_node("SpringArm3D").get_node("Camera3D").current = true
 		# expected surface y under the player: ~2.3 at x=4 rising 0.333/unit.
 		# Player is feet-origin (humanoid), so y should sit ~at the surface.
 		var surf: float = 2.3 + (player.global_position.x - 4.0) * 0.333

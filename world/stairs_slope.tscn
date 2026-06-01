@@ -13,7 +13,7 @@ size = Vector3(14, 5, 6)
 size = Vector3(14, 5, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_step"]
-size = Vector3(1, 0.4, 4)
+size = Vector3(0.5, 0.5, 4)
 
 [node name="StairsSlope" type="Node3D"]
 
@@ -39,26 +39,66 @@ transform = Transform3D(0.94898, -0.31537, 0, 0.31537, 0.94898, 0, 0, 0, 1, 4.57
 shape = SubResource("BoxShape3D_ramp")
 
 [node name="Step0" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 2.3, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.0, 2.06, -4)
 mesh = SubResource("BoxMesh_step")
 material_override = SubResource("Mat_step")
 
 [node name="Step1" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2.8, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 2.227, -4)
 mesh = SubResource("BoxMesh_step")
 material_override = SubResource("Mat_step")
 
 [node name="Step2" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7, 3.3, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.0, 2.393, -4)
 mesh = SubResource("BoxMesh_step")
 material_override = SubResource("Mat_step")
 
 [node name="Step3" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 3.8, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.5, 2.559, -4)
 mesh = SubResource("BoxMesh_step")
 material_override = SubResource("Mat_step")
 
 [node name="Step4" type="MeshInstance3D" parent="Stairs"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 4.3, -4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0, 2.726, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step5" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5, 2.893, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step6" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.0, 3.059, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step7" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 3.226, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step8" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.0, 3.392, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step9" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.5, 3.559, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step10" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.0, 3.725, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step11" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.5, 3.892, -4)
+mesh = SubResource("BoxMesh_step")
+material_override = SubResource("Mat_step")
+
+[node name="Step12" type="MeshInstance3D" parent="Stairs"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0, 4.058, -4)
 mesh = SubResource("BoxMesh_step")
 material_override = SubResource("Mat_step")
