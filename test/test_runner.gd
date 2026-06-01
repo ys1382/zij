@@ -218,15 +218,28 @@ func climb_test(player, lane_z: float, shot: String) -> Dictionary:
 		peak_y = max(peak_y, y)
 		if player.is_on_floor():
 			grounded_count += 1
-		# Halfway up (~x=7): capture a side view showing feet on the surface.
+		# Halfway up (~x=7): stop, let it settle to idle, then measure + shoot.
 		if not mid_done and player.global_position.x > 7.0:
 			mid_done = true
-			sidecam.current = true
+			player.test_input = Vector2.ZERO
+			for j in range(20):
+				await get_tree().physics_frame
 			var p: Vector3 = player.global_position
+			# Raycast straight down from above the feet to find the real surface.
+			var space: PhysicsDirectSpaceState3D = player.get_world_3d().direct_space_state
+			var rq := PhysicsRayQueryParameters3D.create(
+				p + Vector3(0, 2.0, 0), p + Vector3(0, -2.0, 0), 1)  # mask 1 = env
+			var hit: Dictionary = space.intersect_ray(rq)
+			var surf_y: float = (hit.position.y as float) if not hit.is_empty() else NAN
+			var gap: float = p.y - surf_y
+			print("CLIMBDBG %s feet_y=%.3f surface_y=%.3f gap=%.3f (>0 feet above surface)"
+				% [mid_shot, p.y, surf_y, gap])
+			sidecam.current = true
 			sidecam.global_position = p + Vector3(0.5, 1.0, 6.0)
 			sidecam.look_at(p + Vector3(0, 0.6, 0))
 			await capture(mid_shot)
 			player.get_node("SpringArm3D").get_node("Camera3D").current = true
+			player.test_input = Vector2(1, 0)
 		# expected surface y under the player: ~2.3 at x=4 rising 0.333/unit.
 		# Player is feet-origin (humanoid), so y should sit ~at the surface.
 		var surf: float = 2.3 + (player.global_position.x - 4.0) * 0.333
