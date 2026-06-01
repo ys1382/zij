@@ -142,6 +142,52 @@ func run_tests() -> void:
 		"grounded_frac=%.2f" % stair_stats.grounded_frac)
 	check("stairs_no_judder", stair_stats.monotonic, "height climbed without dropping back")
 
+	# M6 (humanoid): test the Mixamo Y Bot actor in isolation BEFORE integrating.
+	# Reuse the game's floor; spawn far from the ramp/stairs slab (x<-2, z 11..17)
+	# in open floor at x=-14 so a walk in any horizontal direction stays clear.
+	var hum := preload("res://actors/humanoid.tscn").instantiate()
+	game.add_child(hum)
+	hum.test_mode = true
+	hum.global_position = Vector3(-14.0, 0.3, 14.0)
+	# A dedicated camera so the screenshots actually frame the humanoid.
+	var hcam := Camera3D.new()
+	game.add_child(hcam)
+	hcam.current = true
+	for i in range(60):
+		await get_tree().physics_frame
+	_aim(hcam, hum.global_position)
+	await capture("08_humanoid_idle.png")
+	check("humanoid_anims_loaded",
+		hum.anim.has_animation("idle") and hum.anim.has_animation("walk"),
+		"anims=%s" % str(hum.anim.get_animation_list()))
+	check("humanoid_rests_on_floor", hum.is_on_floor(), "y=%.2f" % hum.global_position.y)
+	check("humanoid_not_sunk", hum.global_position.y > -0.2 and hum.global_position.y < 0.6,
+		"y=%.2f (feet should be near 0)" % hum.global_position.y)
+	check("humanoid_idle_anim", hum.current_animation == "idle",
+		"current=%s" % hum.current_animation)
+
+	var h_start: Vector3 = hum.global_position
+	hum.test_input = Vector2(0, -1)   # forward (-Z)
+	for i in range(60):
+		await get_tree().physics_frame
+	_aim(hcam, hum.global_position)
+	await capture("09_humanoid_walk.png")
+	var h_moved: float = h_start.distance_to(hum.global_position)
+	check("humanoid_moved", h_moved > 1.0, "moved=%.2f" % h_moved)
+	check("humanoid_grounded_after_move", hum.is_on_floor(), "y=%.2f" % hum.global_position.y)
+	check("humanoid_walk_anim", hum.current_animation == "walk",
+		"current=%s" % hum.current_animation)
+	hum.test_input = Vector2.ZERO
+	for i in range(20):
+		await get_tree().physics_frame
+	check("humanoid_returns_to_idle", hum.current_animation == "idle",
+		"current=%s" % hum.current_animation)
+
+# Place a camera to frame a target point from a 3/4 angle.
+func _aim(cam: Camera3D, target: Vector3) -> void:
+	cam.global_position = target + Vector3(3.5, 2.5, 4.5)
+	cam.look_at(target + Vector3(0, 1.0, 0))
+
 # Drives the player up a slope/stairs at z=lane and returns climb statistics.
 func climb_test(player, lane_z: float, shot: String) -> Dictionary:
 	# Drop onto the slope near its base (x=4), settle, then walk +X uphill.

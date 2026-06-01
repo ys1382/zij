@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhumanoid0001"]
+
+[ext_resource type="Script" path="res://actors/humanoid.gd" id="1_hum"]
+[ext_resource type="PackedScene" uid="uid://hh1bu81lqptl" path="res://assets/Basic Locomotion Pack/Y Bot.fbx" id="2_ybot"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hum"]
+radius = 0.3
+height = 1.8
+
+[node name="Humanoid" type="CharacterBody3D"]
+script = ExtResource("1_hum")
+
+[node name="Model" parent="." instance=ExtResource("2_ybot")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_hum")
