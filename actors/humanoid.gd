@@ -56,8 +56,26 @@ func _load_animations() -> void:
 		if src_ap != null and src_ap.has_animation("mixamo_com"):
 			var clip := src_ap.get_animation("mixamo_com").duplicate() as Animation
 			clip.loop_mode = Animation.LOOP_LINEAR if name != "jump" else Animation.LOOP_NONE
+			_strip_root_motion(clip)
 			lib.add_animation(name, clip)
 		inst.free()
+
+# Mixamo clips bake forward translation into the Hips ("root motion"). We move
+# the body in code, so lock the Hips' horizontal (X/Z) drift to its first key —
+# keeping the vertical bob — so the animation plays in place without snapping.
+func _strip_root_motion(clip: Animation) -> void:
+	for t in clip.get_track_count():
+		if clip.track_get_type(t) != Animation.TYPE_POSITION_3D:
+			continue
+		if not str(clip.track_get_path(t)).contains("Hips"):
+			continue
+		var n := clip.track_get_key_count(t)
+		if n == 0:
+			continue
+		var base: Vector3 = clip.track_get_key_value(t, 0)
+		for k in range(n):
+			var v: Vector3 = clip.track_get_key_value(t, k)
+			clip.track_set_key_value(t, k, Vector3(base.x, v.y, base.z))
 
 func _play(name: String) -> void:
 	if current_animation == name:
