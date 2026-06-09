@@ -12,3 +12,6 @@
 # Unreal Engine packaged demo — runnable Windows build (.pak/.ucas/.exe/DLLs),
 # NOT importable into Godot. Excluded to keep the repo lean.
 /assets/MiddleEasternTownGigapackDemo/
+
+# Harness runtime lock
+.claude/scheduled_tasks.lock
