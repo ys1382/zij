@@ -2,6 +2,7 @@ extends CanvasLayer
 
 const SCENES := {
 	"City": "res://scenes/city.tscn",
+	"Big City": "res://scenes/big_city.tscn",
 	"Main": "res://scenes/main.tscn",
 }
 
