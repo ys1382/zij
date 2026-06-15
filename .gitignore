@@ -15,3 +15,6 @@
 
 # Harness runtime lock
 .claude/scheduled_tasks.lock
+
+# 246MB modular kit — too large for GitHub without LFS
+"/assets/Downtown City MegaKit[Standard]/"

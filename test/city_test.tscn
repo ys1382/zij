@@ -1,0 +1,4 @@
+[gd_scene load_steps=2 format=3 uid="uid://bcitytest001"]
+[ext_resource type="Script" path="res://test/city_test.gd" id="1"]
+[node name="CityTest" type="Node"]
+script = ExtResource("1")
