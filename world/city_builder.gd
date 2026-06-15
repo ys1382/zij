@@ -26,15 +26,29 @@ func _ready() -> void:
 	for x in range(cols):
 		for y in range(rows):
 			var cell: Dictionary = grid[x][y]
-			if cell["kind"] == "building" and not place_buildings:
+			if cell == null:
+				push_error("CityBuilder: nil cell at %d,%d" % [x, y])
+				continue
+			var kind: String = cell["kind"]
+			# building_span and empty cells are handled by their plot origin.
+			if kind != "road" and kind != "building":
+				continue
+			if kind == "building" and not place_buildings:
 				continue
 			var ps := CityKit.scene(cell["tile"])
 			if ps == null:
 				continue
 			var inst := ps.instantiate() as Node3D
 			tiles_root.add_child(inst)
-			var cell_center := Vector3(x * module, 0.0, y * module)
-			_place_tile(inst, cell_center, int(cell["rot_steps"]), cell["kind"] == "building", module)
+			var plot: Vector2i = cell["plot_size"]
+			# Plot centre in grid coords (may span multiple cells).
+			var cx: float = (x + (plot.x - 1) * 0.5) * module
+			var cy: float = (y + (plot.y - 1) * 0.5) * module
+			var cell_center := Vector3(cx, 0.0, cy)
+			var plot_footprint: float = module * max(plot.x, plot.y)
+			_place_tile(inst, cell_center, int(cell["rot_steps"]),
+					kind == "building", plot_footprint, float(cell["height_scale"]),
+					plot.x, plot.y, module)
 			placed += 1
 
 	# Recenter whole assembly: horizontal centre at origin, bottom at y=0.
@@ -70,24 +84,22 @@ func _ready() -> void:
 
 	print("CityBuilder: %d tiles, %d colliders, spawn=%s" % [placed, colliders, spawn_position])
 
-# Positions `inst` so its footprint centre sits on `cell_center`, applies yaw,
-# and (for buildings) scales uniformly to fit the cell and grounds it at y=0.
-func _place_tile(inst: Node3D, cell_center: Vector3, rot_steps: int, is_building: bool, module: float) -> void:
+# Places a tile: centres footprint on cell_center, applies yaw, scales building
+# to fit its plot (plot_w x plot_h cells), then applies height_scale independently.
+func _place_tile(inst: Node3D, cell_center: Vector3, rot_steps: int, is_building: bool,
+		plot_footprint: float, height_scale: float, plot_w: int, plot_h: int, module: float) -> void:
 	inst.rotation = Vector3(0.0, rot_steps * PI * 0.5, 0.0)
 
-	# Measure in-tree (captures wrapper transforms + the rotation just applied).
 	var a: AABB = CityCollision.aabb_of(inst)
 
 	if is_building:
-		# Scale to fit cell footprint with a small margin so neighbouring
-		# buildings/roads never interpenetrate.
-		var margin := 0.92
-		var fit_x: float = module * margin / max(a.size.x, 0.001)
-		var fit_z: float = module * margin / max(a.size.z, 0.001)
+		var margin := 0.88
+		var fit_x: float = plot_w * module * margin / max(a.size.x, 0.001)
+		var fit_z: float = plot_h * module * margin / max(a.size.z, 0.001)
 		var s: float = min(fit_x, fit_z)
-		inst.scale = Vector3(s, s, s)
-		a = CityCollision.aabb_of(inst)  # re-measure after scaling
+		# Apply footprint scale uniformly, then stretch height independently.
+		inst.scale = Vector3(s, s * height_scale, s)
+		a = CityCollision.aabb_of(inst)
 
-	# Horizontal: align footprint centre to cell centre. Vertical: bottom to y=0.
 	var center := a.get_center()
 	inst.position += Vector3(cell_center.x - center.x, -a.position.y, cell_center.z - center.z)
