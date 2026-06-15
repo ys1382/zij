@@ -18,7 +18,7 @@ extends RefCounted
 # Deterministic: same seed -> same city.
 
 # Returns { grid: Array[Array[Dictionary]], cols: int, rows: int, spawn: Vector2i }
-static func generate(cols: int, rows: int, block_size: int, seed_value: int) -> Dictionary:
+static func generate(cols: int, rows: int, block_size: int, seed_value: int, buildings: Array[String] = []) -> Dictionary:
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed_value
 	var stride := block_size + 1  # road every `stride` cells
@@ -54,7 +54,7 @@ static func generate(cols: int, rows: int, block_size: int, seed_value: int) -> 
 			var oy: int = by * stride + 1   # block interior origin y
 			if ox + block_size > cols or oy + block_size > rows:
 				continue
-			_partition_block(grid, rng, ox, oy, block_size)
+			_partition_block(grid, rng, ox, oy, block_size, buildings)
 
 	# Fill any cells left null (partial edge blocks that weren't partitioned).
 	for x in range(cols):
@@ -67,7 +67,7 @@ static func generate(cols: int, rows: int, block_size: int, seed_value: int) -> 
 
 # Greedy random plot partition for one block interior of size block_size x block_size.
 static func _partition_block(grid: Array, rng: RandomNumberGenerator,
-		ox: int, oy: int, block_size: int) -> void:
+		ox: int, oy: int, block_size: int, buildings: Array[String]) -> void:
 	# Possible plot sizes in priority order (largest first for Manhattan feel).
 	# Each entry: [w, h, weight]
 	var sizes := [
@@ -106,7 +106,7 @@ static func _partition_block(grid: Array, rng: RandomNumberGenerator,
 			# Occasionally leave small plots empty (open lots, plazas).
 			var empty: bool = chosen == Vector2i(1, 1) and rng.randf() < 0.08
 
-			var tile: String = CityKit.BUILDINGS[rng.randi_range(0, CityKit.BUILDINGS.size() - 1)]
+			var tile: String = buildings[rng.randi_range(0, buildings.size() - 1)]
 			var rot: int = rng.randi_range(0, 3)
 			# Height varies by plot size: big plots can be very tall towers;
 			# small plots tend to be shorter.

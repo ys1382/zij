@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bdesertcity01"]
+
+[ext_resource type="Script" path="res://world/city_builder.gd" id="1_builder"]
+[ext_resource type="PackedScene" uid="uid://bhumanoid0001" path="res://actors/humanoid.tscn" id="2_player"]
+
+[sub_resource type="Environment" id="Env_desert"]
+background_mode = 1
+background_color = Color(0.82, 0.72, 0.52, 1)
+ambient_light_source = 2
+ambient_light_color = Color(0.75, 0.65, 0.45, 1)
+
+[node name="DesertCity" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Env_desert")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.766044, -0.413176, 0.492404, 0, 0.766044, 0.642788, -0.642788, -0.492404, 0.586824, 0, 80, 0)
+light_color = Color(1.0, 0.92, 0.75, 1)
+shadow_enabled = true
+directional_shadow_max_distance = 600.0
+
+[node name="CityBuilder" type="Node3D" parent="."]
+script = ExtResource("1_builder")
+pack = "desert"
+city_seed = 42
+
+[node name="Player" parent="." instance=ExtResource("2_player")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)

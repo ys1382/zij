@@ -10,12 +10,17 @@ extends Node3D
 @export var block_size: int = 3          # building cells between roads
 @export var city_seed: int = 1
 @export var place_buildings: bool = true
+@export var pack: String = "city4"       # "city4" or "desert"
 
 var spawn_position: Vector3 = Vector3(0, 2, 0)
 
 func _ready() -> void:
 	var module: float = CityKit.MODULE
-	var layout := CityLayout.generate(cols, rows, block_size, city_seed)
+	var buildings := CityKit.buildings_for_pack(pack)
+	if buildings.is_empty():
+		push_error("CityBuilder: no buildings found for pack '%s'" % pack)
+		return
+	var layout := CityLayout.generate(cols, rows, block_size, city_seed, buildings)
 	var grid: Array = layout["grid"]
 
 	var tiles_root := Node3D.new()

@@ -1,52 +1,64 @@
 class_name CityKit
 extends RefCounted
-# Catalog of Downtown City MegaKit tiles: logical name -> gltf path, with
-# cached PackedScene loads and measured footprints. Single source of truth so
-# the builder never hardcodes paths or tile dimensions.
+# Catalog of building packs. Each pack exposes a BUILDINGS array (full res:// paths)
+# and a ROAD path. The builder picks a pack by name at export time.
 
-const ROOT := "res://assets/Downtown City MegaKit[Standard]/Exports/glTF (Godot)/"
-
-# Logical tile names actually used by the builder. Buildings are the 3 complete
-# prefabs; road/ground is the clean flat 9x9 asphalt square (tileable); sidewalk
-# is the 3m straight piece (3 divides 9 evenly).
-const ROAD := "Street_Asphalt_9x9"
-const SIDEWALK := "Sidewalk_Straight_3m"
-const BUILDINGS := ["Building_Small_1", "Building_Medium_2_001", "Building_Large_2"]
-
-# Grid module in metres — derived from the flat asphalt tile (9x9). Everything
-# snaps to this. Verified empirically via test/inspect_kit.gd.
 const MODULE := 9.0
-const SIDEWALK_MODULE := 3.0
+
+# --- Pack definitions ---
+
+const MEGAKIT_ROOT := "res://assets/Downtown City MegaKit[Standard]/Exports/glTF (Godot)/"
+const CITY4_ROOT   := "res://assets/City_4_glb/Separate_assets_glb/"
+const DESERT_ROOT  := "res://assets/Desert_City_Oasis_glb/Separate_assets_glb/"
+
+# Road tile shared across packs (9x9 flat asphalt, zero-height mesh — ground slab
+# handles actual collision; tile is purely visual).
+const ROAD := MEGAKIT_ROOT + "Street_Asphalt_9x9.gltf"
+
+# City_4: skyscrapers, business centres, banks, hotels, apartments — Manhattan feel.
+static var CITY4_BUILDINGS: Array[String] = _list(CITY4_ROOT, [
+	"skyscraper", "business_center", "bank", "hotel",
+	"appartnemt_1", "appartnemt_2", "house_big_1", "house_big_2",
+	"house_purpose", "cafe",
+])
+
+# Desert: mosques, towers, houses, stalls — Middle-Eastern feel.
+static var DESERT_BUILDINGS: Array[String] = _list(DESERT_ROOT, [
+	"mosque", "tower", "house", "stall",
+])
 
 static var _scene_cache := {}
-static var _footprint_cache := {}
 
-static func scene(name: String) -> PackedScene:
-	if _scene_cache.has(name):
-		return _scene_cache[name]
-	var ps := load(ROOT + name + ".gltf") as PackedScene
+# Returns all glb paths under `root` whose stem starts with any prefix in `prefixes`.
+static func _list(root: String, prefixes: Array) -> Array[String]:
+	var result: Array[String] = []
+	var dir := DirAccess.open(ProjectSettings.globalize_path(root))
+	if dir == null:
+		return result
+	dir.list_dir_begin()
+	var f := dir.get_next()
+	while f != "":
+		if f.ends_with(".glb"):
+			var stem := f.get_basename()
+			for prefix in prefixes:
+				if stem.begins_with(prefix):
+					result.append(root + f)
+					break
+		f = dir.get_next()
+	dir.list_dir_end()
+	result.sort()
+	return result
+
+static func buildings_for_pack(pack: String) -> Array[String]:
+	match pack:
+		"desert": return DESERT_BUILDINGS
+		_:        return CITY4_BUILDINGS  # default: city4
+
+static func scene(path: String) -> PackedScene:
+	if _scene_cache.has(path):
+		return _scene_cache[path]
+	var ps := load(path) as PackedScene
 	if ps == null:
-		push_error("CityKit: could not load tile " + name)
-	_scene_cache[name] = ps
+		push_error("CityKit: could not load " + path)
+	_scene_cache[path] = ps
 	return ps
-
-# Local (untransformed) footprint AABB of a tile, measured once and cached.
-# Returns AABB so callers can read both size and pivot offset (position).
-static func footprint(name: String) -> AABB:
-	if _footprint_cache.has(name):
-		return _footprint_cache[name]
-	var ps := scene(name)
-	var agg := AABB()
-	if ps != null:
-		var inst := ps.instantiate() as Node3D
-		var first := true
-		for mi in inst.find_children("*", "MeshInstance3D", true, false):
-			var a: AABB = (mi as MeshInstance3D).transform * (mi as MeshInstance3D).get_aabb()
-			if first:
-				agg = a
-				first = false
-			else:
-				agg = agg.merge(a)
-		inst.free()
-	_footprint_cache[name] = agg
-	return agg
