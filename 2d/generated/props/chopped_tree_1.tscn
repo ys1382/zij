@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Chopped_Tree_1.png" id="tex"]
+
+[node name="Chopped_Tree_1" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-16, -31)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-16, -9.087, -16, -7.0245, -15.0625, -6.1495, -12, -6.0245, -10, -7.0245, -8.125, -7.087, -6.125, -6.087, -5.0625, -5.087, -3, -1.1495, -2, 0.038, 2, 0.038, 3.1875, -1.1495, 5.0625, -5.1495, 6.0625, -6.0245, 8.0625, -7.087, 10, -7.1495, 12, -6.0245, 15, -6.087, 16.0625, -7.0245, 16.0625, -8.962, 14.9375, -10.1495, 14.0625, -12.0245, 13.125, -15.0245, 12.0625, -17.962, 0.0625, -21.0245, -12, -18.1495, -12.9375, -15.1495, -13.875, -12.0245, -15, -10.0245)

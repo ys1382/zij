@@ -1,0 +1,388 @@
+{
+  "title": "The Quiet Bell",
+  "premise": "Every morning the bell over Hollowbrook rings to wake the village. This morning it did not, and nobody can find the rope.",
+  "hidden_truth": "A family of jackdaws wove the bell rope into a nest in the old oak. Tomas saw them do it and said nothing, because the quiet let his sick mother sleep through the night for the first time in weeks.",
+  "seed": "a bell tower gone silent",
+  "goal": {
+    "summary": "find out what happened to the bell rope",
+    "detail": "Work out where the rope went and who took it. Four things need piecing together, and it does not matter which you find first."
+  },
+  "items": [
+    {
+      "id": "black_feather",
+      "name": "a glossy black feather",
+      "text": "It is longer than your hand, and very black. A jackdaw's."
+    }
+  ],
+  "map": {
+    "width": 40,
+    "height": 30,
+    "base_terrain": "grass",
+    "regions": [
+      {
+        "terrain": "dirt",
+        "x": 12,
+        "y": 12,
+        "w": 16,
+        "h": 9
+      },
+      {
+        "terrain": "water",
+        "x": 29,
+        "y": 2,
+        "w": 8,
+        "h": 6
+      }
+    ],
+    "paths": [
+      {
+        "points": [
+          {
+            "x": 3,
+            "y": 27
+          },
+          {
+            "x": 24,
+            "y": 27
+          },
+          {
+            "x": 24,
+            "y": 17
+          },
+          {
+            "x": 35,
+            "y": 17
+          }
+        ],
+        "width": 2
+      }
+    ]
+  },
+  "player_start": {
+    "x": 5,
+    "y": 27
+  },
+  "objects": [
+    {
+      "id": "house_north",
+      "asset": "building.house_hay_2",
+      "x": 4,
+      "y": 3
+    },
+    {
+      "id": "house_east",
+      "asset": "building.house_hay_1",
+      "x": 22,
+      "y": 4
+    },
+    {
+      "id": "house_west",
+      "asset": "building.house_hay_4_purple",
+      "x": 2,
+      "y": 18
+    },
+    {
+      "id": "gate",
+      "asset": "building.citywall_gate_1",
+      "x": 34,
+      "y": 23
+    },
+    {
+      "id": "oak",
+      "asset": "tree.tree_emerald_3",
+      "x": 16,
+      "y": 4
+    },
+    {
+      "id": "tree_w1",
+      "asset": "tree.tree_emerald_1",
+      "x": 0,
+      "y": 13
+    },
+    {
+      "id": "tree_w2",
+      "asset": "tree.tree_emerald_2",
+      "x": 0,
+      "y": 3
+    },
+    {
+      "id": "tree_e1",
+      "asset": "tree.tree_emerald_4",
+      "x": 37,
+      "y": 9
+    },
+    {
+      "id": "tree_e2",
+      "asset": "tree.tree_emerald_1",
+      "x": 30,
+      "y": 26
+    },
+    {
+      "id": "tree_s1",
+      "asset": "tree.tree_emerald_2",
+      "x": 25,
+      "y": 26
+    },
+    {
+      "id": "bush_a",
+      "asset": "tree.bush_emerald_1",
+      "x": 11,
+      "y": 24
+    },
+    {
+      "id": "bush_b",
+      "asset": "tree.bush_emerald_3",
+      "x": 15,
+      "y": 24
+    },
+    {
+      "id": "bush_c",
+      "asset": "tree.bush_emerald_4",
+      "x": 21,
+      "y": 24
+    },
+    {
+      "id": "rock_a",
+      "asset": "rock.rock_brown_4",
+      "x": 29,
+      "y": 23
+    },
+    {
+      "id": "rock_b",
+      "asset": "rock.rock_brown_1",
+      "x": 33,
+      "y": 21
+    },
+    {
+      "id": "hay",
+      "asset": "prop.haystack_2",
+      "x": 11,
+      "y": 19
+    },
+    {
+      "id": "plant_a",
+      "asset": "prop.plant_2",
+      "x": 31,
+      "y": 13
+    }
+  ],
+  "interactables": [
+    {
+      "id": "well",
+      "asset": "building.well_hay_1",
+      "x": 18,
+      "y": 16,
+      "text": "The village well. The water is dark and still, and far below something pale is caught on the stones.",
+      "beat": "rope_in_well",
+      "on": "",
+      "gives_item": "",
+      "needs_item": "",
+      "locked_text": ""
+    },
+    {
+      "id": "notice",
+      "asset": "prop.bulletinboard_1",
+      "x": 13,
+      "y": 17,
+      "text": "LOST \u2014 one bell rope, three fathoms, good hemp. Ask for Mira at the tower. A reward of two honey cakes.",
+      "beat": "rope_missing",
+      "on": "",
+      "gives_item": "",
+      "needs_item": "",
+      "locked_text": ""
+    },
+    {
+      "id": "signpost",
+      "asset": "prop.sign_1",
+      "x": 22,
+      "y": 26,
+      "text": "HOLLOWBROOK \u2014 please walk quietly past the oak, the birds are nesting.",
+      "beat": "",
+      "on": "",
+      "gives_item": "",
+      "needs_item": "",
+      "locked_text": ""
+    },
+    {
+      "id": "chest",
+      "asset": "prop.crate_large_empty",
+      "x": 27,
+      "y": 19,
+      "text": "Inside: a coil of fresh hemp, still smelling of tar, and a single glossy black feather.",
+      "beat": "feather_found",
+      "gives_item": "black_feather",
+      "on": "",
+      "needs_item": "",
+      "locked_text": ""
+    },
+    {
+      "id": "bench",
+      "asset": "prop.bench_1",
+      "x": 17,
+      "y": 23,
+      "text": "A worn bench facing the square. Someone has been sitting here a long time.",
+      "beat": "",
+      "on": "",
+      "gives_item": "",
+      "needs_item": "",
+      "locked_text": ""
+    },
+    {
+      "id": "barrel",
+      "asset": "prop.barrel_small_empty",
+      "x": 10,
+      "y": 14,
+      "text": "An empty rain barrel. A scrap of hemp twine is snagged on the rim.",
+      "beat": "twine_snagged",
+      "on": "",
+      "gives_item": "",
+      "needs_item": "",
+      "locked_text": ""
+    }
+  ],
+  "npcs": [
+    {
+      "id": "mira",
+      "x": 20,
+      "y": 15,
+      "name": "Mira",
+      "role": "bell-ringer",
+      "persona": "Brisk and practical, worried but trying not to show it.",
+      "secret": "She overslept for the first time in nine years and is embarrassed.",
+      "could_know": "Rings the bell every morning, so she was first to find it gone; she is up and about before anyone else",
+      "opener": "You're up early! Then again \u2014 nothing woke anyone this morning, did it?",
+      "movement": "idle",
+      "tint": "#c94f4f",
+      "wants_item": ""
+    },
+    {
+      "id": "tomas",
+      "x": 11,
+      "y": 23,
+      "name": "Tomas",
+      "role": "boy",
+      "persona": "Quiet, kind, changes the subject quickly.",
+      "secret": "He saw the jackdaws take the rope and said nothing.",
+      "could_know": "Out early with his sick mother's errands, and spends a lot of time looking up at the oak",
+      "opener": "Oh \u2014 hello. It's nice, isn't it? How quiet it is.",
+      "movement": "idle",
+      "tint": "#4f7dc9",
+      "wants_item": "black_feather"
+    },
+    {
+      "id": "harun",
+      "x": 25,
+      "y": 13,
+      "name": "Harun",
+      "role": "rope-maker",
+      "persona": "Booming, generous, proud of his craft.",
+      "secret": "He gave Tomas the new coil of hemp for free and won't say why.",
+      "could_know": "Made the rope himself and knows every fibre of it; scraps of his hemp turn up all over the village",
+      "opener": "Three fathoms of my best hemp, gone! Come, look at this.",
+      "movement": "wander",
+      "tint": "#3f8f5a",
+      "wants_item": ""
+    },
+    {
+      "id": "eda",
+      "x": 15,
+      "y": 26,
+      "name": "Eda",
+      "role": "beekeeper",
+      "persona": "Slow, observant, speaks in small certainties.",
+      "secret": "She has watched the oak all week and knows exactly what is in it.",
+      "could_know": "Keeps bees at the foot of the old oak and watches that tree all day long",
+      "opener": "The birds have been busy. Busier than the bees, this week.",
+      "movement": "wander",
+      "tint": "#d8a13a",
+      "wants_item": ""
+    },
+    {
+      "id": "sefa",
+      "x": 33,
+      "y": 18,
+      "name": "Sefa",
+      "role": "carter",
+      "persona": "Impatient, always halfway out of the gate, secretly fond of the place.",
+      "secret": "She'd offered to buy the village a new bell rope and was refused.",
+      "could_know": "Drives the cart in and out past the oak and the well several times a day",
+      "opener": "If that bell doesn't ring I'll not know when to leave. Suits me fine.",
+      "movement": "idle",
+      "tint": "#8a5ac9",
+      "wants_item": ""
+    }
+  ],
+  "enemies": [
+    {
+      "id": "slime_pond",
+      "x": 29,
+      "y": 11,
+      "behavior": "wander"
+    },
+    {
+      "id": "slime_wood",
+      "x": 6,
+      "y": 15,
+      "behavior": "wander"
+    }
+  ],
+  "beats": [
+    {
+      "id": "rope_missing",
+      "desc": "The bell rope has gone missing overnight.",
+      "hint": "Someone mentions the morning felt strange and late."
+    },
+    {
+      "id": "twine_snagged",
+      "desc": "Scraps of the same hemp twine are turning up around the village.",
+      "hint": "A neighbour grumbles about bits of string everywhere."
+    },
+    {
+      "id": "jackdaws_seen",
+      "desc": "Jackdaws were seen carrying something long and pale up into the old oak.",
+      "hint": "Someone glances up at the oak and then quickly away."
+    },
+    {
+      "id": "feather_found",
+      "desc": "A glossy black feather was left where the rope should have been.",
+      "hint": "There's talk of a feather turning up somewhere odd."
+    },
+    {
+      "id": "nest_in_oak",
+      "desc": "There is a new nest high in the old oak, woven through with rope.",
+      "hint": "The oak has looked different these last few days."
+    },
+    {
+      "id": "rope_in_well",
+      "desc": "The frayed end of the rope hangs down into the well, where a bird dropped it.",
+      "hint": "The well rope feels heavier than it used to."
+    }
+  ],
+  "ending": {
+    "condition_beats": [
+      "rope_missing",
+      "jackdaws_seen",
+      "nest_in_oak",
+      "rope_in_well"
+    ],
+    "finale": "The village leaves the nest exactly where it is and hangs Harun's new rope instead. Mira rings the bell an hour later than usual, every morning, until the young jackdaws have flown. Tomas's mother sleeps through all of it."
+  },
+  "rival": {
+    "id": "the_hush",
+    "name": "The Hush",
+    "nature": "a sulky little fog spirit",
+    "motive": "it has loved the quiet mornings since the bell fell silent, and does not want them to end",
+    "tint": "#7a4fc9",
+    "rumors": [
+      "The dogs won't settle at dawn this week, for no reason anyone can name.",
+      "Mist has been pooling by the oak at first light, thicker than it should be.",
+      "Something in the mist is watching the well now, and it isn't shy about it."
+    ],
+    "taunts": [
+      "Oh, must you? It was SO peaceful.",
+      "Fine, fine \u2014 I can be loud too, you know!"
+    ],
+    "defeat": "The Hush deflates into a small damp cloud, sniffs, and drifts off to go be quiet somewhere it won't be bothered \u2014 the bottom of the well, probably, once the rope's out of it."
+  },
+  "version": 2
+}

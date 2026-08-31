@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/CityWall_Gate_1.png" id="tex"]
+
+[node name="CityWall_Gate_1" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-40, -96)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-40, -13.0468, -26.9631, -13.0468, -26.9631, -0.0099, -40, -0.0099)
+
+[node name="Collision1" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(26.9815, -13.0185, 40.0184, -13.0185, 40.0184, 0.0184, 26.9815, 0.0184)

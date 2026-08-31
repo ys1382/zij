@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Barrel_Small_Empty.png" id="tex"]
+
+[node name="Barrel_Small_Empty" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-8, -20)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(8, -3.86955, 7.20775, -2.17469, 4.98792, -0.81552, 1.78017, -0.06124, -1.78017, -0.06124, -4.98792, -0.81552, -7.20775, -2.17469, -8, -3.86955, -7.20775, -5.56441, -4.98792, -6.92358, -1.78017, -7.67786, 1.78017, -7.67786, 4.98792, -6.92358, 7.20775, -5.56441)

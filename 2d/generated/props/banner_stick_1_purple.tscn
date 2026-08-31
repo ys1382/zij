@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Banner_Stick_1_Purple.png" id="tex"]
+
+[node name="Banner_Stick_1_Purple" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-12, -59)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-4.13043, -10, -4.04347, -0.0625, 4.04348, -0.0625, 4.04348, -9.96072)

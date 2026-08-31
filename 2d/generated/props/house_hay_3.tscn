@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Buildings/House_Hay_3.png" id="tex"]
+
+[node name="House_Hay_3" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-87.5, -128)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-87.49479, -0.047, 82.49333, -0.00403, 82.50333, -96.9882, -55.50557, -97.0033, -55.50257, -49.0105, -56.50497, -49.0161, -56.50137, -23.4301, -56.51037, -20.993, -87.51042, -21.0456)

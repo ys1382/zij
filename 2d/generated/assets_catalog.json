@@ -1,0 +1,902 @@
+{
+  "generated_by": "tools/tsx_convert.py",
+  "objects": {
+    "building.citywall_gate_1": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "gate",
+      "px": [
+        80,
+        96
+      ],
+      "scene": "res://generated/props/citywall_gate_1.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "door",
+        "entrance",
+        "wall"
+      ],
+      "tiles": [
+        5,
+        6
+      ],
+      "verb": "open"
+    },
+    "building.house_hay_1": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "house",
+      "px": [
+        89,
+        91
+      ],
+      "scene": "res://generated/props/house_hay_1.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "building",
+        "home"
+      ],
+      "tiles": [
+        6,
+        6
+      ],
+      "verb": "open"
+    },
+    "building.house_hay_2": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "house",
+      "px": [
+        157,
+        112
+      ],
+      "scene": "res://generated/props/house_hay_2.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "building",
+        "home"
+      ],
+      "tiles": [
+        10,
+        7
+      ],
+      "verb": "open"
+    },
+    "building.house_hay_3": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "house",
+      "px": [
+        175,
+        128
+      ],
+      "scene": "res://generated/props/house_hay_3.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "building",
+        "home",
+        "large"
+      ],
+      "tiles": [
+        11,
+        8
+      ],
+      "verb": "open"
+    },
+    "building.house_hay_4_purple": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "house",
+      "px": [
+        128,
+        128
+      ],
+      "scene": "res://generated/props/house_hay_4_purple.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "building",
+        "home"
+      ],
+      "tiles": [
+        8,
+        8
+      ],
+      "verb": "open"
+    },
+    "building.well_hay_1": {
+      "anchor": "bottom_center",
+      "category": "building",
+      "kind": "well",
+      "px": [
+        56,
+        74
+      ],
+      "scene": "res://generated/props/well_hay_1.tscn",
+      "solid": true,
+      "source": "Buildings",
+      "tags": [
+        "landmark",
+        "water",
+        "village"
+      ],
+      "tiles": [
+        4,
+        5
+      ],
+      "verb": "look"
+    },
+    "prop.banner_stick_1_purple": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "banner",
+      "px": [
+        24,
+        59
+      ],
+      "scene": "res://generated/props/banner_stick_1_purple.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "decor",
+        "heraldry"
+      ],
+      "tiles": [
+        2,
+        4
+      ],
+      "verb": "read"
+    },
+    "prop.barrel_small_empty": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "container",
+      "px": [
+        16,
+        20
+      ],
+      "scene": "res://generated/props/barrel_small_empty.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "container",
+        "storage"
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "verb": "open"
+    },
+    "prop.basket_empty": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "container",
+      "px": [
+        22,
+        17
+      ],
+      "scene": "res://generated/props/basket_empty.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "container",
+        "storage"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "open"
+    },
+    "prop.bench_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "bench",
+      "px": [
+        14,
+        30
+      ],
+      "scene": "res://generated/props/bench_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "seat",
+        "furniture"
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "verb": "sit"
+    },
+    "prop.bench_3": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "bench",
+      "px": [
+        14,
+        14
+      ],
+      "scene": "res://generated/props/bench_3.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "seat",
+        "furniture"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": "sit"
+    },
+    "prop.bulletinboard_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "notice",
+      "px": [
+        44,
+        42
+      ],
+      "scene": "res://generated/props/bulletinboard_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "readable",
+        "notice",
+        "quest"
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "verb": "read"
+    },
+    "prop.chopped_tree_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "stump",
+      "px": [
+        32,
+        31
+      ],
+      "scene": "res://generated/props/chopped_tree_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "seat",
+        "woodland"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "sit"
+    },
+    "prop.crate_large_empty": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "container",
+      "px": [
+        24,
+        29
+      ],
+      "scene": "res://generated/props/crate_large_empty.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "container",
+        "storage"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "open"
+    },
+    "prop.crate_medium_closed": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "container",
+      "px": [
+        16,
+        21
+      ],
+      "scene": "res://generated/props/crate_medium_closed.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "container",
+        "storage"
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "verb": "open"
+    },
+    "prop.crate_water_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "trough",
+      "px": [
+        30,
+        22
+      ],
+      "scene": "res://generated/props/crate_water_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "water",
+        "storage"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "look"
+    },
+    "prop.fireplace_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "hearth",
+      "px": [
+        30,
+        26
+      ],
+      "scene": "res://generated/props/fireplace_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "fire",
+        "warmth",
+        "village"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "look"
+    },
+    "prop.haystack_2": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "haystack",
+      "px": [
+        29,
+        32
+      ],
+      "scene": "res://generated/props/haystack_2.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "farm",
+        "decor"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "look"
+    },
+    "prop.lamppost_3": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "lamp",
+      "px": [
+        46,
+        62
+      ],
+      "scene": "res://generated/props/lamppost_3.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "light",
+        "street"
+      ],
+      "tiles": [
+        3,
+        4
+      ],
+      "verb": "look"
+    },
+    "prop.plant_2": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "plant",
+      "px": [
+        15,
+        11
+      ],
+      "scene": "res://generated/props/plant_2.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "decor",
+        "greenery"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "prop.sack_3": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "container",
+      "px": [
+        16,
+        14
+      ],
+      "scene": "res://generated/props/sack_3.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "container",
+        "storage"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": "open"
+    },
+    "prop.sign_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "sign",
+      "px": [
+        24,
+        22
+      ],
+      "scene": "res://generated/props/sign_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "readable",
+        "signpost"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "read"
+    },
+    "prop.sign_2": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "sign",
+      "px": [
+        24,
+        22
+      ],
+      "scene": "res://generated/props/sign_2.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "readable",
+        "signpost"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": "read"
+    },
+    "prop.table_medium_1": {
+      "anchor": "bottom_center",
+      "category": "prop",
+      "kind": "table",
+      "px": [
+        42,
+        39
+      ],
+      "scene": "res://generated/props/table_medium_1.tscn",
+      "solid": true,
+      "source": "Objects_Props",
+      "tags": [
+        "furniture",
+        "surface"
+      ],
+      "tiles": [
+        3,
+        3
+      ],
+      "verb": "look"
+    },
+    "rock.rock_brown_1": {
+      "anchor": "bottom_center",
+      "category": "rock",
+      "kind": "rock",
+      "px": [
+        28,
+        14
+      ],
+      "scene": "res://generated/props/rock_brown_1.tscn",
+      "solid": true,
+      "source": "Objects_Rocks",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        2,
+        1
+      ],
+      "verb": ""
+    },
+    "rock.rock_brown_2": {
+      "anchor": "bottom_center",
+      "category": "rock",
+      "kind": "rock",
+      "px": [
+        15,
+        30
+      ],
+      "scene": "res://generated/props/rock_brown_2.tscn",
+      "solid": true,
+      "source": "Objects_Rocks",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "verb": ""
+    },
+    "rock.rock_brown_4": {
+      "anchor": "bottom_center",
+      "category": "rock",
+      "kind": "rock",
+      "px": [
+        27,
+        27
+      ],
+      "scene": "res://generated/props/rock_brown_4.tscn",
+      "solid": true,
+      "source": "Objects_Rocks",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": ""
+    },
+    "rock.rock_brown_6": {
+      "anchor": "bottom_center",
+      "category": "rock",
+      "kind": "rock",
+      "px": [
+        14,
+        14
+      ],
+      "scene": "res://generated/props/rock_brown_6.tscn",
+      "solid": true,
+      "source": "Objects_Rocks",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "rock.rock_brown_9": {
+      "anchor": "bottom_center",
+      "category": "rock",
+      "kind": "rock",
+      "px": [
+        9,
+        12
+      ],
+      "scene": "res://generated/props/rock_brown_9.tscn",
+      "solid": true,
+      "source": "Objects_Rocks",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_1": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        40,
+        29
+      ],
+      "scene": "res://generated/props/bush_emerald_1.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        3,
+        2
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_2": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        48,
+        16
+      ],
+      "scene": "res://generated/props/bush_emerald_2.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        3,
+        1
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_3": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        28,
+        28
+      ],
+      "scene": "res://generated/props/bush_emerald_3.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        2,
+        2
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_4": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        16,
+        28
+      ],
+      "scene": "res://generated/props/bush_emerald_4.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        2
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_5": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        14,
+        14
+      ],
+      "scene": "res://generated/props/bush_emerald_5.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_6": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        15,
+        10
+      ],
+      "scene": "res://generated/props/bush_emerald_6.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "tree.bush_emerald_7": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        12,
+        9
+      ],
+      "scene": "res://generated/props/bush_emerald_7.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        1,
+        1
+      ],
+      "verb": ""
+    },
+    "tree.tree_emerald_1": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        64,
+        63
+      ],
+      "scene": "res://generated/props/tree_emerald_1.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        4,
+        4
+      ],
+      "verb": ""
+    },
+    "tree.tree_emerald_2": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        46,
+        63
+      ],
+      "scene": "res://generated/props/tree_emerald_2.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        3,
+        4
+      ],
+      "verb": ""
+    },
+    "tree.tree_emerald_3": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        52,
+        92
+      ],
+      "scene": "res://generated/props/tree_emerald_3.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        4,
+        6
+      ],
+      "verb": ""
+    },
+    "tree.tree_emerald_4": {
+      "anchor": "bottom_center",
+      "category": "tree",
+      "kind": "tree",
+      "px": [
+        48,
+        93
+      ],
+      "scene": "res://generated/props/tree_emerald_4.tscn",
+      "solid": true,
+      "source": "Objects_Trees",
+      "tags": [
+        "decor"
+      ],
+      "tiles": [
+        3,
+        6
+      ],
+      "verb": ""
+    }
+  },
+  "tile_size": [
+    16,
+    16
+  ],
+  "tilesets": {
+    "Animation_Flowers_Red": {
+      "path": "res://generated/tilesets/Animation_Flowers_Red.tres",
+      "terrains": {}
+    },
+    "Animation_Flowers_White": {
+      "path": "res://generated/tilesets/Animation_Flowers_White.tres",
+      "terrains": {}
+    },
+    "Atlas_Buildings": {
+      "path": "res://generated/tilesets/Atlas_Buildings.tres",
+      "terrains": {}
+    },
+    "Atlas_Props": {
+      "path": "res://generated/tilesets/Atlas_Props.tres",
+      "terrains": {}
+    },
+    "Atlas_Rocks": {
+      "path": "res://generated/tilesets/Atlas_Rocks.tres",
+      "terrains": {}
+    },
+    "Atlas_Trees_Bushes": {
+      "path": "res://generated/tilesets/Atlas_Trees_Bushes.tres",
+      "terrains": {}
+    },
+    "Campfire": {
+      "path": "res://generated/tilesets/Campfire.tres",
+      "terrains": {}
+    },
+    "Road": {
+      "path": "res://generated/tilesets/Road.tres",
+      "terrains": {
+        "Empty": 0,
+        "Road": 1
+      }
+    },
+    "Tileset_Ground": {
+      "path": "res://generated/tilesets/Tileset_Ground.tres",
+      "terrains": {
+        "Dirt": 2,
+        "Empty": 0,
+        "Grass": 1
+      }
+    },
+    "Tileset_RockSlope": {
+      "path": "res://generated/tilesets/Tileset_RockSlope.tres",
+      "terrains": {
+        "Empty": 0,
+        "Rock Slope": 1
+      }
+    },
+    "Tileset_RockSlope_Simple": {
+      "path": "res://generated/tilesets/Tileset_RockSlope_Simple.tres",
+      "terrains": {}
+    },
+    "Tileset_Water": {
+      "path": "res://generated/tilesets/Tileset_Water.tres",
+      "terrains": {
+        "Empty": 0,
+        "Water": 1
+      }
+    }
+  },
+  "version": 1
+}

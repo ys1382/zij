@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Rocks/Rock_Brown_6.png" id="tex"]
+
+[node name="Rock_Brown_6" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-7, -14)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-7.3125, -3.125, -4.5625, 0, 3.9375, 0, 6.9375, -2.25, 7.0625, -4.375, 4.4375, -5.875, -4.6875, -6)

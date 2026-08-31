@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Trees and Bushes/Bush_Emerald_6.png" id="tex"]
+
+[node name="Bush_Emerald_6" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-7.5, -10)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-7.49878, -3.0138, -6.50821, -0.99904, -5.49944, -0.00954, 5.49244, 0.00391, 7.49184, -2.01121, 7.49974, -4.99609, 6.49684, -5.99609, 3.49334, -6.99949, -4.51439, -7.00051, -6.51099, -5.99712, -7.49876, -5.03618)

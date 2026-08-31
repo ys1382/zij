@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Basket_Empty.png" id="tex"]
+
+[node name="Basket_Empty" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-11, -17)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(10.95652, -3.4457, 9.87337, -1.95422, 6.83844, -0.75815, 2.45284, -0.09439, -2.4148, -0.09439, -6.8004, -0.75815, -9.83533, -1.95422, -10.91848, -3.4457, -9.83533, -4.93718, -6.8004, -6.13325, -2.4148, -6.79701, 2.45284, -6.79701, 6.83844, -6.13325, 9.87337, -4.93718)

@@ -1,0 +1,18 @@
+# Art packs are third-party and NOT redistributable — Mystic Woods is
+# explicitly "non-commercial, no redistribution even if modified", and the
+# Fan-tasy and Tiny RPG packs ship no licence text at all. Keep them local.
+/assets/
+
+# Godot
+/.godot/
+*.import
+
+# Backend
+/backend/.venv/
+/backend/.env
+__pycache__/
+
+# Generated + output
+/test_output/
+/backend/cache/
+/backend/backend.log

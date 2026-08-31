@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/The Fan-tasy Tileset (Free)/Art/Props/Fireplace_1.png" id="tex"]
+
+[node name="Fireplace_1" type="StaticBody2D"]
+collision_layer = 1
+collision_mask = 0
+
+[node name="Sprite" type="Sprite2D" parent="."]
+centered = false
+position = Vector2(-15, -26)
+texture = ExtResource("tex")
+
+[node name="Collision0" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-14.91304, -6.087, -8.27668, -0.087, 11.26876, -0.087, 14.99606, -4.26882, 14.81426, -13.26882, 12.99606, -15.26882, -13.91304, -15.087, -15.00395, -11.26882)
